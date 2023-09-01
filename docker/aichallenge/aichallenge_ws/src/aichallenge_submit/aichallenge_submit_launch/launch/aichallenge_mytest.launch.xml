@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Development version of aichallenge_submit.launch.xml -->
+<launch>
+    <!--<arg name="rviz_config" default="$(find-pkg-share autoware_launch)/rviz/autoware.rviz" description="rviz config"/>-->
+    <!-- Autoware -->
+    <!--<include file="$(find-pkg-share autoware_launch)/launch/e2e_simulator.launch.xml">-->
+        <!--<arg name="vehicle_model" value="golfcart"/>-->
+        <!--<arg name="sensor_model" value="awsim_sensor_kit"/>-->
+        <!--<arg name="map_path" value="/aichallenge/mapfile"/>-->
+        <!--<arg name="rviz" value="false"/>-->
+    <!--</include>-->
+
+    <!-- Uncomment the following lines to try Autoware-Mini -->
+     <arg name="rviz_config" default="$(find-pkg-share autoware_launch)/rviz/autoware-mini.rviz" description="rviz config"/> 
+     <include file="$(find-pkg-share aichallenge_submit_launch)/launch/autoware_my_mini_awsim.launch.xml" >
+      <arg name="vehicle_model" value="golfcart"/>
+      <arg name="sensor_model" value="awsim_sensor_kit"/>
+      <arg name="map_path" value="/aichallenge/mapfile"/>
+      <arg name="rviz" value="true"/>
+    </include>
+
+    <include file="$(find-pkg-share initialpose_publisher)/launch/initialpose_publisher.launch.xml" />
+
+    <!--<include file="$(find-pkg-share self_driving_controller)/launch/self_driving_controller.launch.xml" />-->
+
+    <!-- Rviz2 -->
+    <group>
+      <node pkg="rviz2" exec="rviz2" name="rviz2" output="screen" args="-d $(var rviz_config) -s $(find-pkg-share autoware_launch)/rviz/image/autoware.png" />
+    </group>
+</launch>
