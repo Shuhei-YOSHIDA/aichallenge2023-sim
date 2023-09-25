@@ -14,7 +14,7 @@
       enable_bound_clipping: false
       enable_avoidance_over_same_direction: true
       enable_avoidance_over_opposite_direction: true
-      enable_update_path_when_object_is_gone: false
+      enable_update_path_when_object_is_gone: true
       enable_force_avoidance_for_stopped_vehicle: false
       enable_safety_check: false
       enable_yield_maneuver: false
@@ -48,7 +48,7 @@
         object_check_goal_distance: 20.0                # [m]
         # filtering parking objects
         threshold_distance_object_is_on_center: 1.0     # [m]
-        object_check_shiftable_ratio: 0.6               # [-]
+        object_check_shiftable_ratio: 0.3               # [-]
         object_check_min_road_shoulder_width: 0.5       # [m]
         # lost object compensation
         object_last_seen_threshold: 2.0
@@ -65,7 +65,7 @@
       avoidance:
         # avoidance lateral parameters
         lateral:
-          lateral_collision_margin: 1.0                 # [m]
+          lateral_collision_margin: 0.3                 # [m]
           lateral_collision_safety_buffer: 0.7          # [m]
           lateral_passable_safety_buffer: 0.0           # [m]
           road_shoulder_safety_margin: 0.3              # [m]
@@ -87,8 +87,8 @@
 
       # For stop maneuver
       stop:
-        min_distance: 10.0                              # [m]
-        max_distance: 20.0                              # [m]
+        min_distance: 3.0                              # [m]
+        max_distance: 5.0                              # [m]
 
       constraints:
         # vehicle slows down under longitudinal constraints
